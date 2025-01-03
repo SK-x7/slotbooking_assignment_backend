@@ -362,7 +362,7 @@ function formatSlots(slots) {
       const nextSlot = new Date(slots[index + 1]);
 
       if (nextSlot.toISOString().split("T")[0] === dateKey) {
-        const endHours = ('0' + (nextSlot.getUTCHours() + 5)).slice(-2);
+        const endHours = ('0' + (nextSlot.getUTCHours())).slice(-2);
         const endMinutes = ('0' + (nextSlot.getUTCMinutes())).slice(-2);
 
         // Initialize the date key if not already present
