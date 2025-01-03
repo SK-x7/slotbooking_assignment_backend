@@ -98,7 +98,7 @@ exports.getAvailableSlots = async (req, res)=> {
   
   // Return available slots
   //FIXME - 
-  res.status(200).json({status:"success",message:"Succesfully retreived available slots",data:{length:formattedSlots.length, availableSlots:availableSlots} });
+  res.status(200).json({status:"success",message:"Succesfully retreived available slots",data:{length:formattedSlots.length, availableSlots:formattedSlots} });
 }
 
 // Helper function to generate 1-hour slots from 10 AM to 12 PM for the next 30 days
@@ -141,7 +141,7 @@ function generateTimeSlots(startDate, endDate) {
 
   while (currentDate <= endDate) {
     //FIXME - 
-    for (let h = 10; h < 25; h++) {
+    for (let h = 9; h < 24; h++) {
     // for (let h = 10; h < 11; h++) {
       // Push each 1-hour slot for the day
       const hour = ("0"+(h%24)).slice(-2);
@@ -355,7 +355,7 @@ function formatSlots(slots) {
     const dateKey = dateObj.toISOString().split("T")[0]; // Extract date (e.g., "2025-01-02")
 
     // Convert time to GMT+5
-    const startHours = ('0' + (dateObj.getUTCHours() + 5)).slice(-2);
+    const startHours = ('0' + (dateObj.getUTCHours())).slice(-2);
     const startMinutes = ('0' + (dateObj.getUTCMinutes())).slice(-2);
 
     if (index < slots.length - 1) {
