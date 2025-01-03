@@ -22,18 +22,10 @@ app.use("/api/v1/bookings",bookingRouter);
 app.use("/api/v1/users",userRouter);
 
 app.get("/",async (req,res,next)=>{
-    let { data: bookings, error } = await supabase
-  .from('tables')
-  .select('*')
-  if(error){
-    console.log(error);
-    console.log(error.message)
-  }
-  
-    res.json({
+  res.json({
         status:"success",
         message:"Hello from the server",
-        bookings: bookings
+      
         
     })
 })
