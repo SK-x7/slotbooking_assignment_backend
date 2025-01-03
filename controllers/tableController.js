@@ -98,7 +98,7 @@ exports.getAvailableSlots = async (req, res)=> {
   
   // Return available slots
   //FIXME - 
-  res.status(200).json({status:"success",message:"Succesfully retreived available slots",data:{length:formattedSlots.length, availableSlots:timeSlots} });
+  res.status(200).json({status:"success",message:"Succesfully retreived available slots",data:{length:formattedSlots.length, availableSlots:availableSlots} });
 }
 
 // Helper function to generate 1-hour slots from 10 AM to 12 PM for the next 30 days
