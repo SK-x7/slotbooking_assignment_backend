@@ -199,7 +199,8 @@ function filterAvailableSlots(timeSlots, bookings) {
         console.log("Request made=====")
       //FIXME - 
       // return slotStart < bookingEnd && (slotEnd) > bookingStart; // Overlap condition
-      return (new Date(slotStart) < testBookingEnd) && ((slotEnd) > testBookingStart); // Overlap condition
+      // return (new Date(slotStart) < testBookingEnd) && ((slotEnd) > testBookingStart); // Overlap condition
+      return (new Date(slotStart) < bookingEnd) && ((slotEnd) > bookingStart); // Overlap condition
     });
   });
 }
