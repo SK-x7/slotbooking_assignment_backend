@@ -69,7 +69,7 @@ exports.getAvailableSlots = async (req, res)=> {
   const { tableId } = req.params; // Table ID from the request query
   const today = new Date();
   const startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 10, 0, 0); // 10 AM today
-  const endDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 2, 23, 59, 59); // End of 30th day
+  const endDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30, 23, 59, 59); // End of 30th day
 
   if (!tableId) {
     return res.status(400).json({ error: 'Table ID is required' });
