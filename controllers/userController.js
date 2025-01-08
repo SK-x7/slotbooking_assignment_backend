@@ -70,7 +70,7 @@ exports.checkUserExists = async (username)=>{
   
   try {
     let { data: users} = await supabase
-      .from('myUsers').select("*").eq("name",username)
+      .from('myUsers').select("*").eq("name",username.toLowerCase())
       
   
       if(users.length) return {userExists:true,user:users[0]};
@@ -120,6 +120,7 @@ exports.createUser = async (req,res,next)=>{
       
       const temp={
         ...userData,
+        name:userData.name.toLowerCase(),
         password:hashedPassword
       }
       
